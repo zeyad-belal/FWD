@@ -1,0 +1,261 @@
+
+
+
+/* ---- general Rules ---- */
+body {
+  background: rgb(136, 203, 171);
+  background: linear-gradient(0deg, rgb(172, 105, 199) 0%, rgb(184, 35, 92) 100%);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+/* text styling */
+h1 {
+  font-size: 3em;
+  margin: 2em 1rem;
+  text-shadow: 2px 2px 4px rgb(157, 170, 58)
+}
+
+@media(min-width: 35em) {
+  h1 {
+    font-size: 7em;
+    margin: 2em 4rem 1em;
+  }
+}
+
+
+p {
+  line-height: 1.6em;
+  color: #eee;
+}
+
+h3 {
+  border-bottom: 2px solid rgb(190, 127, 180);
+  font-family: "Oxygen", Sans-Serif;
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 1px 1px 3px black
+}
+
+/* sections */
+main {
+  margin: 10vh 1em 10vh;
+}
+
+section {
+  position: relative;
+  min-height: 75vh;
+}
+.main-hero {
+  min-height: 40vh;
+  padding-top: 3em;
+}
+
+
+/* Navbar*/
+.navbar__menu ul {
+  padding-left: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.navbar__menu li {
+  display: inline-block;
+}
+.navbar__menu .menu__link:hover {
+  background: #333;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+
+.navbar__menu .menu__link {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+
+.page__footer {
+  background: rgb(23, 22, 22);
+  padding: 3em;
+  color: rgb(183, 182, 182);
+}
+.page__header {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.page__footer p {
+  color: #fff;
+}
+
+/* Landing section */
+.landing__container {
+  text-align: left;
+  padding: 2em;
+}
+
+@media only screen and (min-width: 35em) {
+  .landing__container {
+    max-width: 45em;
+    padding: 3em;
+  }
+}
+
+section:nth-of-type(even) .landing__container {
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+/* circules animation */
+section:nth-of-type(even) .landing__container::before {
+  content: "";
+  background: rgb(255, 255, 255);
+  right: 3em;
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 40%;
+  background: linear-gradient(
+    0deg,
+    rgba(219, 216, 216, 0.1) 0%,
+    rgba(165, 164, 164, 0.2) 100%
+  );
+  position: absolute;
+  opacity: 0;
+  top: 2em;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.187);
+  position: absolute;
+  z-index: -5;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 40%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+
+
+section:nth-of-type(3n) .landing__container::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+  width: 10vh;
+  background: rgb(234, 220, 220);
+  background: linear-gradient(
+    0deg,
+    rgba(57, 41, 41, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  right: 20vw;
+  bottom: -5em;
+  z-index: -5;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  opacity: 0;
+  transition: ease 0.5s all;
+}
+
+
+/*  actiVe class is applied through javascript.  */
+
+section.actiVe .landing__container::after {
+  opacity: 1;
+  animation: rotate 5s linear 0s infinite forwards reverse;
+}
+section.actiVe .landing__container::before {
+  opacity: 1;
+  animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.actiVe {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 20px;
+}
+
+
+/*  Keyframe Animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+
+.nav {
+  background-color: #00000080;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+.activeClass {
+  background-color: #ffffff1a;
+  border-bottom: 1px solid orange;
+}
+.li {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+
+@media (max-width: 850px) {
+  ul#navbar__list {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  li {
+    width: 20%;
+  }
+}
+
+@media (max-width: 35em) {
+  ul#navbar__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    width: 100%;
+    text-align: center;
+  }
+}
